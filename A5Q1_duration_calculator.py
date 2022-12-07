@@ -1,4 +1,20 @@
-def duration_in_seconds(days: int, hours: int, minutes: int, seconds: float):
+def duration_in_seconds(days: int, hours: int, minutes: int, seconds: float) -> float:
+    """Calculates total time in seconds provided days,hours,mins,secs
+
+    Args:
+        days (int): Any Integer
+        hours (int): Integer between 1 and 23 inclusive
+        minutes (int): Integer between 1 and 59 inclusive
+        seconds (float): Float between 1 and 59 inclusive
+
+    Raises:
+        ValueError: Incorrect value for hours
+        ValueError: Incorrect value for minutes
+        ValueError: Incorrect value for seconds
+
+    Returns:
+        float: (days * 86400) + (hours * 3600) + (minutes * 60) + seconds
+    """    
     assert type(days) == int, '(days) must be an int'
     assert type(hours) == int, '(hours) must be an int'
     assert type(minutes) == int, '(minutes) must be a int'

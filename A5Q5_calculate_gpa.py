@@ -1,4 +1,16 @@
-def calculate_gpa(book: dict):
+def calculate_gpa(book: dict) ->float:
+    """Calculates gpa using CNA standard, when provided a correctly formatted dictionary
+
+    Args:
+        book (dict): book must be a vald gradebook formated as {Course:{'Credit':creditvalueint,'score':scorevalueint}}
+
+    Raises:
+        ValueError: If the course detail dictionary has key values pairs that are not credit and score
+        AssertionError: Invalid types
+
+    Returns:
+        float: The total points divided by the total points attempted
+    """    
     # Begin exception handling
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Confirm We have the right type
@@ -19,6 +31,7 @@ def calculate_gpa(book: dict):
     # End exception handling
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     grade_values = []
+    # Get the grade value from score
     for details in book.values():
         if details['score'] >= 80:
             grade_values.append(4)
@@ -32,11 +45,14 @@ def calculate_gpa(book: dict):
             grade_values.append(0)
     counter = 0
     total_points_list = []
+    # Get point total
     for details in book.values():
         total_points_value = details['credit'] * grade_values[counter]
         total_points_list.append(total_points_value)
         counter += 1
+
     attempted = []
+    # Get attempted credits
     for details in book.values():
         attempted.append(details['credit'])
     return sum(total_points_list) / sum(attempted)
@@ -63,9 +79,10 @@ if __name__ == '__main__':
             print(ve)
         except TypeError as te:
             print(te)
-        except NameError as ne:
+        except ZeroDivisionError as zde:
             print('You must add at least one course')
         except Exception as e:
             print(type(e), e)
         else:
             break
+            

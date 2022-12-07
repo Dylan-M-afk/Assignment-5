@@ -1,4 +1,21 @@
 def get_season(month: str, day: int) -> str:
+    """provided a date (moth and day) calculate what season the date is in
+
+    Args:
+        month (str): Valid month from Jan to Dec
+        day (int): Valid day between 1 and 31
+
+    Raises:
+        ValueError: Invalid Month
+        ValueError: day is larger than 31
+        ValueError: day is less than or equal to 0
+        ValueError: Too many days provided for corresponding month
+        ValueError: Too many days provided for corresponding month
+        ValueError: Too many days provided for corresponding month
+
+    Returns:
+        str: Titlecased word for the calculated season (ex: Summer)
+    """    
     assert type(month) == str, 'month must be a string!'
     assert type(day) == int, 'day must be an int!'
     month = month.title()

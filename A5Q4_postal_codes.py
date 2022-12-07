@@ -1,5 +1,7 @@
 import string
-def get_details_from_postal_code(postal_code: str):
+
+
+def get_details_from_postal_code(postal_code: str) -> list:
     """When provided a postal code this function will return the province and the location rural or urban
 
     Args:
@@ -15,8 +17,8 @@ def get_details_from_postal_code(postal_code: str):
         ValueError: Invalid first letter, which identifies province
 
     Returns:
-        _type_: _description_
-    """    
+        list: A liust with two entries, [Province,Region]
+    """
     # Check if our type is correct
     if type(postal_code) != str:
         raise TypeError(f'{postal_code} is not a string')
@@ -31,19 +33,21 @@ def get_details_from_postal_code(postal_code: str):
     # Make sure its in the correct Format (All Uppercase)
     postal_code = postal_code.upper()
     # After removing the space we should be exactly 6 characters long
-    if len(postal_code) !=6:
+    if len(postal_code) != 6:
         raise ValueError(f'{postal_code} is invalid as it is not the correct length')
     counter = 1
     # We check if all the even characters are numbers
     for number in postal_code[1::2]:
         if number not in '1234567890':
-            raise ValueError(f"{postal_code} is not a valid Postal Code. your {counter+1} character - ({postal_code[counter]}) is not a valid number")
+            raise ValueError(
+                f"{postal_code} is not a valid Postal Code. your {counter + 1} character - ({postal_code[counter]}) is not a valid number")
         counter += 2
     counter = 0
     # We check if all the odd characters are letters
     for letter in postal_code[0::2]:
         if letter not in string.ascii_uppercase:
-            raise ValueError(f'{postal_code} is not a valid Postal Code. your {counter+1} character - ({postal_code[counter]}) is not a valid letter')
+            raise ValueError(
+                f'{postal_code} is not a valid Postal Code. your {counter + 1} character - ({postal_code[counter]}) is not a valid letter')
         counter += 2
     # Confirm that the first letter is a valid region identifier
     if postal_code[0] not in 'ABCEGHJKLMNPRSTVXY':
