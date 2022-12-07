@@ -1,4 +1,4 @@
-def duration_in_seconds(days:int,hours:int,minutes:int,seconds:float):
+def duration_in_seconds(days: int, hours: int, minutes: int, seconds: float):
     assert type(days) == int, '(days) must be an int'
     assert type(hours) == int, '(hours) must be an int'
     assert type(minutes) == int, '(minutes) must be a int'
@@ -11,6 +11,7 @@ def duration_in_seconds(days:int,hours:int,minutes:int,seconds:float):
         raise ValueError('Seconds must be greater than 0 and less than 60')
     return (days * 86400) + (hours * 3600) + (minutes * 60) + seconds
 
+
 if __name__ == "__main__":
     while True:
         try:
@@ -18,9 +19,10 @@ if __name__ == "__main__":
             user_hours = int(input('Enter hours: '))
             user_minutes = int(input('Enter minutes: '))
             user_seconds = float(input('Enter seconds: '))
-            time = duration_in_seconds(user_days,user_hours,user_minutes,user_seconds)
+            time = duration_in_seconds(user_days, user_hours, user_minutes, user_seconds)
         except ValueError as ve:
             print(ve)
         else:
-            print(f'The time of {user_days} days, {user_hours} hours, {user_minutes} minutes, and {user_seconds} seconds is exactly {time} seconds')
+            print(
+                f'The time of {user_days} days, {user_hours} hours, {user_minutes} minutes, and {user_seconds} seconds is exactly {time} seconds')
             break

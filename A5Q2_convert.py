@@ -1,7 +1,7 @@
-def convert_feet_and_inches_to_meters(feet:int, inches) ->float:
+def convert_feet_and_inches_to_meters(feet: int, inches) -> float:
     if type(feet) != int:
         raise TypeError('feet must be an int')
-    if type(inches) not in [int,float]:
+    if type(inches) not in [int, float]:
         raise TypeError('inches must be a int or float')
     if inches < 0:
         raise ValueError('inches must be greater than 0')
@@ -9,6 +9,7 @@ def convert_feet_and_inches_to_meters(feet:int, inches) ->float:
         raise ValueError('inches must be less than 12')
     meters = (feet * 0.3048) + (inches * 0.0254)
     return meters
+
 
 if __name__ == "__main__":
     while True:
@@ -25,4 +26,3 @@ if __name__ == "__main__":
         else:
             print(f"Your length in meters from {user_feet}, and {user_inches} is {user_length}")
             break
-
