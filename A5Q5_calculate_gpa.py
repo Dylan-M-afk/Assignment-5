@@ -19,15 +19,14 @@ def calculate_gpa(book: dict):
     # End exception handling
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     grade_values = []
-    # The CNA GPA calc is missing a lot of values? like 75-80
     for details in book.values():
         if details['score'] >= 80:
             grade_values.append(4)
-        elif 70 <= details['score'] <= 75:
+        elif details['score'] in [70, 75]:
             grade_values.append(3)
-        elif 60 <= details['score'] <= 65:
+        elif details['score'] in [60, 65]:
             grade_values.append(2)
-        elif 50 <= details['score'] <= 55:
+        elif details['score'] in [50, 55]:
             grade_values.append(1)
         elif details['score'] <= 49:
             grade_values.append(0)
@@ -44,6 +43,7 @@ def calculate_gpa(book: dict):
 
 
 if __name__ == '__main__':
+    grade_book = {}
     while True:
         try:
             while True:
@@ -57,8 +57,7 @@ if __name__ == '__main__':
                 if user_score % 5 != 0:
                     print('Your grade must be divisible by 5!')
                     continue
-                grade_book = {user_course_number: {'credit': user_credit_value, 'score': user_score}}
-            # If undefined a name error will be caught
+                grade_book[user_course_number] = {'credit': user_credit_value, 'score': user_score}
             print(f'Your GPA is: {calculate_gpa(grade_book)}')
         except ValueError as ve:
             print(ve)
