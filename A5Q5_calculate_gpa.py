@@ -1,8 +1,8 @@
-def calculate_gpa(book: dict) ->float:
+def calculate_gpa(book: dict) -> float:
     """Calculates gpa using CNA standard, when provided a correctly formatted dictionary
 
     Args:
-        book (dict): book must be a vald gradebook formated as {Course:{'Credit':creditvalueint,'score':scorevalueint}}
+        book (dict): book must be a valid gradebook formatted as {Course:{'Credit':creditvalueint,'score':scorevalueint}}
 
     Raises:
         ValueError: If the course detail dictionary has key values pairs that are not credit and score
@@ -10,7 +10,7 @@ def calculate_gpa(book: dict) ->float:
 
     Returns:
         float: The total points divided by the total points attempted
-    """    
+    """
     # Begin exception handling
     # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     # Confirm We have the right type
@@ -60,10 +60,11 @@ def calculate_gpa(book: dict) ->float:
 
 if __name__ == '__main__':
     grade_book = {}
+    print('~~Enter your course information to get your GPA~~')
     while True:
         try:
             while True:
-                user_course_number = input('Enter course number: ')
+                user_course_number = input('Enter course number(Enter nothing to calculate GPA): ')
                 if user_course_number == '':
                     break
                 user_credit_value = int(input('Enter credit value: '))
@@ -85,4 +86,3 @@ if __name__ == '__main__':
             print(type(e), e)
         else:
             break
-            

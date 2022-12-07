@@ -27,7 +27,7 @@ def get_details_from_postal_code(postal_code: str) -> list:
         raise ValueError('Postal Code is to long!')
     # If our postal code is 7 characters long the fourth must be a space
     if len(postal_code) == 7 and postal_code[3] != ' ':
-        raise ValueError('Incorrect Postal Code - Please use one (or no) spaces to seperate your postal code.')
+        raise ValueError('Incorrect Postal Code - Please use one (or no) spaces to separate your postal code.')
     # We remove all spaces
     postal_code = postal_code.replace(' ', '')
     # Make sure its in the correct Format (All Uppercase)
@@ -40,14 +40,16 @@ def get_details_from_postal_code(postal_code: str) -> list:
     for number in postal_code[1::2]:
         if number not in '1234567890':
             raise ValueError(
-                f"{postal_code} is not a valid Postal Code. your {counter + 1} character - ({postal_code[counter]}) is not a valid number")
+                f"{postal_code} is not a valid Postal Code. your {counter + 1} character - ({postal_code[counter]}) "
+                f"is not a valid number")
         counter += 2
     counter = 0
     # We check if all the odd characters are letters
     for letter in postal_code[0::2]:
         if letter not in string.ascii_uppercase:
             raise ValueError(
-                f'{postal_code} is not a valid Postal Code. your {counter + 1} character - ({postal_code[counter]}) is not a valid letter')
+                f'{postal_code} is not a valid Postal Code. your {counter + 1} character - ({postal_code[counter]}) '
+                f'is not a valid letter')
         counter += 2
     # Confirm that the first letter is a valid region identifier
     if postal_code[0] not in 'ABCEGHJKLMNPRSTVXY':

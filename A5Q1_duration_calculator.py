@@ -1,5 +1,5 @@
 def duration_in_seconds(days: int, hours: int, minutes: int, seconds: float) -> float:
-    """Calculates total time in seconds provided days,hours,mins,secs
+    """Calculates total time in seconds provided days,hours,minutes,secs
 
     Args:
         days (int): Any Integer
@@ -40,5 +40,6 @@ if __name__ == "__main__":
             print(ve)
         else:
             print(
-                f'The time of {user_days} days, {user_hours} hours, {user_minutes} minutes, and {user_seconds} seconds is exactly {time} seconds')
+                f'The time of {user_days} days, {user_hours} hours, {user_minutes} minutes, and {user_seconds} seconds '
+                f'is exactly {time} seconds')
             break

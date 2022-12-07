@@ -3,7 +3,7 @@ def convert_feet_and_inches_to_meters(feet: int, inches) -> float:
 
     Args:
         feet (int): valid int greater than 0
-        inches (int,float): can be a int or float above 0 and less than 12
+        inches (int,float): can be an int or float above 0 and less than 12
 
     Raises:
         TypeError: Invalid type for feet

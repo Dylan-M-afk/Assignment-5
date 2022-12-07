@@ -14,12 +14,13 @@ def get_season(month: str, day: int) -> str:
         ValueError: Too many days provided for corresponding month
 
     Returns:
-        str: Titlecased word for the calculated season (ex: Summer)
+        str: Title cased word for the calculated season (ex: Summer)
     """    
     assert type(month) == str, 'month must be a string!'
     assert type(day) == int, 'day must be an int!'
     month = month.title()
-    if month not in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September','October','November','December']:
+    if month not in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September','October',
+                     'November','December']:
         raise ValueError(f'{month} is not a valid month')
     if day > 31:
         raise ValueError('You cant have more than 31 days in a month')
@@ -66,6 +67,7 @@ def get_season(month: str, day: int) -> str:
 
 
 if __name__ == "__main__":
+    print('~~Enter the date to get the season~~')
     while True:
         try:
             user_month = input("Enter the month: ")
